@@ -1,0 +1,16 @@
+.login{
+    background:rgb(255, 0, 85)!important;
+    color: white!important;
+}
+.nav-link{
+    color: rgb(168, 168, 168)!important;
+    font-weight:400!important;
+}
+.nav-item{
+    padding: 0px 10px!important;
+
+}
+
+.navbar{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.87)!important;
+ }

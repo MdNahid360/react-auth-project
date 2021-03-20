@@ -1,0 +1,17 @@
+.home{
+    width: 100%!important;
+    height: 100vh!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+ .altg{
+      margin:50% , auto;
+ }
+ .card{
+    margin: auto!important;
+ }
+
+ .nav-link{
+    color: white!important;
+ }

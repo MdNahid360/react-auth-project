@@ -24,9 +24,9 @@ import { Link } from 'react-router-dom';
 
 
       
-        <div className="container ">
+        <div className=" ">
        {/* this is navbar */}
-       <nav className="navbar navbar-dark text-white navbar-expand-lg">
+       <nav className="navbar bg-light navbar-light fixed-top text-white navbar-expand-lg">
               <div className="container">
                     <a className="navbar-brand" href="../Home/Home.js">
                         <h3>
@@ -67,7 +67,7 @@ import { Link } from 'react-router-dom';
         }  */}
         
         {/* this is card sections  */}
-          <div className="home">
+          <div className="home container">
               <div className="row py-5 mt-5">
                     <div className="col-lg-3 col-md-3 col-12 mt-2">
                     <Link to="/rides">

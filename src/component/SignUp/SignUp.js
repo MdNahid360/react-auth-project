@@ -4,7 +4,7 @@ import firebase from "firebase/app";
 import google from '../../img/google.png';
 import fb from '../../img/fb.png';
 import firebaseConfig from '../../firebase.config';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 
@@ -21,7 +21,11 @@ const SignUp = () => {
           error: '',
           success:false
       });
-    const[loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const[loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const history = useHistory();
+    const location = useLocation()
+    let {from} = location.state || { from:  { pathname: "/"} };
+
     const provider = new firebase.auth.GoogleAuthProvider();
     const fbProvider = new firebase.auth.FacebookAuthProvider();
 
@@ -38,6 +42,8 @@ const SignUp = () => {
                 photo: photoURL
                }
                setUser(signInUser)
+               history.replace(from);
+
             console.log(displayName, photoURL, email);
      
           })
@@ -97,6 +103,7 @@ const SignUp = () => {
                  newUserInfo.error = '';
                  newUserInfo.success = true;
                  setUser(newUserInfo);
+
                  updatUserName(user.name);
              })
             .catch(error  => {
@@ -109,12 +116,14 @@ const SignUp = () => {
         if(!newUser && user.email && user.password){
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
             .then((res) => {
-                
+                                history.replace(from);
+
                 const newUserInfo = {...user}
                 newUserInfo.success = true;
                 newUserInfo.error='';
                 setUser(newUserInfo);
                 setLoggedInUser(newUserInfo);
+                history.replace(from);
                 console.log('sign in user info', res.user);
 
             })
